@@ -13,10 +13,9 @@ $debug: blue;
   background: rgba($debug, 0.6);
 }
 
-.main {
+main {
   text-align: center;
   flex-grow: 10;
-  background: rgba($debug, 0.3);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
