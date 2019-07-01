@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["cypress", "node"],
+    "sourceMap": false,
+    "outDir": "../../dist/out-tsc/apps/harri-io-e2e/src"
+  },
+  "include": ["**/*.ts"]
+}
