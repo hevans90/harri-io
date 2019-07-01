@@ -19,6 +19,8 @@ MIT
 @ngrx/store-devtools
 MIT
 
+harri-io
+
 rxjs
 Apache-2.0
                                Apache License
