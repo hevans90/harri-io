@@ -8,11 +8,6 @@
       "sourceRoot": "apps/harri-io/src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {
-        "@nrwl/workspace:component": {
-          "style": "scss"
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -151,7 +146,7 @@
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
     },
-    "@nrwl/workspace:component": {
+    "@nrwl/angular:component": {
       "style": "scss"
     }
   },
