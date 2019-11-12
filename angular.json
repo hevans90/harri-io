@@ -159,6 +159,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "movie-library": {
+      "projectType": "library",
+      "root": "libs/movie-library",
+      "sourceRoot": "libs/movie-library/src",
+      "prefix": "harri-io",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/movie-library/tsconfig.lib.json",
+              "libs/movie-library/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/movie-library/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/movie-library/jest.config.js",
+            "tsConfig": "libs/movie-library/tsconfig.spec.json",
+            "setupFile": "libs/movie-library/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

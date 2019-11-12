@@ -4,6 +4,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
   {
+    path: 'movie-library',
+    loadChildren: () =>
+      import('@harri-io/movie-library').then(m => m.MovieLibraryModule)
+  },
+  {
     path: 'playlist-explorer',
     loadChildren: () =>
       import('@harri-io/playlist-explorer').then(m => m.PlaylistExplorerModule)
