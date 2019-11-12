@@ -4,6 +4,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
   {
+    path: 'playlist-explorer',
+    loadChildren: () =>
+      import('@harri-io/playlist-explorer').then(m => m.PlaylistExplorerModule)
+  },
+  {
     path: 'welcome',
     component: WelcomeComponent
   },
