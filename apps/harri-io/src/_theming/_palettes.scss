@@ -1,13 +1,13 @@
 // Import library functions for theme creation.
 @import '~@angular/material/theming';
 
-$__harri-io-primary: (
+$__primary: (
   50: #fce6e5,
   100: #f8c2bd,
   200: #f49991,
   300: #ef7065,
   400: #eb5144,
-  500: #e83223,
+  500: #fa0006,
   600: #e52d1f,
   700: #e2261a,
   800: #de1f15,
@@ -34,7 +34,7 @@ $__harri-io-primary: (
   )
 );
 
-$__harri-io-accent: (
+$__accent: (
   50: #fef2f1,
   100: #fcdedd,
   200: #fac8c6,
@@ -67,5 +67,9 @@ $__harri-io-accent: (
   )
 );
 
-$harri-io-primary: mat-palette($__harri-io-primary);
-$harri-io-accent: mat-palette($__harri-io-accent);
+$__accent-additional-keys: (
+  anchor: map-get($__accent, 500)
+);
+
+$primary: mat-palette($__primary);
+$accent: mat-palette(map-merge($__accent, $__accent-additional-keys));

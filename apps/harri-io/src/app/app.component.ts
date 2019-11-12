@@ -1,31 +1,19 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = "harri-io";
-
-  cards = [
-    { name: "awesome", content: "lorem ipsum doler", height: "150px" },
-    { name: "awesome", content: "lorem ipsum doler", height: "300px" },
-    // { name: 'awesome', content: 'lorem ipsum doler', height: 400 },
-    {
-      name: "awesome",
-      content: `
-    lorem ipsum doler 
-    lorem ipsum doler 
-    lorem ipsum doler 
-    lorem ipsum doler 
-    lorem ipsum doler 
-    lorem ipsum doler 
-    lorem ipsum doler 
-
-    ${this.title}
-    `,
-      height: "fit-content"
-    }
-  ];
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    ['github', 'angular', 'linkedin'].forEach(icon =>
+      iconRegistry.addSvgIcon(
+        icon,
+        sanitizer.bypassSecurityTrustResourceUrl(`assets/${icon}.svg`)
+      )
+    );
+  }
 }

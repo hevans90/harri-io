@@ -28,7 +28,7 @@
             ],
             "styles": ["apps/harri-io/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["apps/harri-io/src/_theming"]
+              "includePaths": ["shared-styles", "apps/harri-io/src/_theming"]
             },
             "scripts": [],
             "es5BrowserSupport": true

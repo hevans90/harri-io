@@ -1,16 +1,2 @@
-<app-header></app-header>
-<div class="container">
-  <main>
-    <div
-      *ngFor="let card of cards"
-      class="crap-card"
-      [ngStyle]="{ height: card.height }"
-    >
-      {{ card.name }}
-      {{ card.content }}
-    </div>
-  </main>
-  <div class="footer">
-    FOOTER RULES
-  </div>
-</div>
+<app-header></app-header> <router-outlet></router-outlet>
+<app-footer></app-footer>
