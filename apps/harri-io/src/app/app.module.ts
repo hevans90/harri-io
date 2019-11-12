@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { NxModule } from '@nrwl/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -34,7 +35,8 @@ const materialModules = [MatIconModule, MatToolbarModule, MatButtonModule];
       maxAge: 100,
       logOnly: false
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NxModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })
