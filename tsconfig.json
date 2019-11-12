@@ -14,6 +14,9 @@
     "target": "es2015",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@harri-io/playlist-explorer": ["libs/playlist-explorer/src/index.ts"]
+    }
   }
 }

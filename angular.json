@@ -128,6 +128,37 @@
           }
         }
       }
+    },
+    "playlist-explorer": {
+      "projectType": "library",
+      "root": "libs/playlist-explorer",
+      "sourceRoot": "libs/playlist-explorer/src",
+      "prefix": "harri-io",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/playlist-explorer/tsconfig.lib.json",
+              "libs/playlist-explorer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/playlist-explorer/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/playlist-explorer/jest.config.js",
+            "tsConfig": "libs/playlist-explorer/tsconfig.spec.json",
+            "setupFile": "libs/playlist-explorer/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
