@@ -1,14 +1,14 @@
 <section class="movies__header">
   <span class="mat-display-1">All movies</span>
 
-  <!-- <mat-form-field class="no-padding" appearance="outline">
-    <mat-label>Filter</mat-label>
-    <mat-select value="all-movies" (selectionChange)="applyFilter($event)">
-      <mat-option *ngFor="let option of filterOptions" [value]="option.value">
-        {{ option.viewValue }}
+  <mat-form-field appearance="outline">
+    <mat-label>Genre</mat-label>
+    <mat-select value="All" (selectionChange)="applyFilter($event)">
+      <mat-option *ngFor="let genre of genres" [value]="genre">
+        {{ genre }}
       </mat-option>
     </mat-select>
-  </mat-form-field> -->
+  </mat-form-field>
 </section>
 <section class="movies__table-container custom-mat-table__table-container">
   <div class="movies__table">

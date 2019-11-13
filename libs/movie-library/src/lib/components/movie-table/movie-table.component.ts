@@ -2,6 +2,7 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Genre, genres as availableGenres } from '../../models/genre';
 import { Movie } from '../../models/movie';
 
 @Component({
@@ -14,6 +15,7 @@ export class MovieTableComponent {
   set movies(data: Movie[]) {
     this.buildMoviesTable(data);
   }
+  genres = ['All', ...availableGenres];
 
   dataSource: MatTableDataSource<Movie>;
 
@@ -40,8 +42,12 @@ export class MovieTableComponent {
       this.dataSource.paginator.firstPage()
     );
 
-    this.dataSource.filterPredicate = (data: Movie, filter: string) =>
-      data.title.includes(filter);
+    this.dataSource.filterPredicate = (data: Movie, filter: Genre | 'All') => {
+      if (filter === 'All') {
+        return true;
+      }
+      return data.genres.includes(filter);
+    };
   };
 
   deleteMovie = (row: any) => {
@@ -49,4 +55,12 @@ export class MovieTableComponent {
     this.dataSource.data.splice(index, 1);
     this.dataSource._updateChangeSubscription(); // <-- Refresh the datasource
   };
+
+  applyFilter(filter: { value: Genre | 'All' }) {
+    this.dataSource.filter = filter.value;
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }
