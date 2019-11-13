@@ -1,4 +1,9 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewChild
+} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -8,7 +13,8 @@ import { Movie } from '../../models/movie';
 @Component({
   selector: 'harri-io-movie-table',
   templateUrl: './movie-table.component.html',
-  styleUrls: ['./movie-table.component.scss']
+  styleUrls: ['./movie-table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MovieTableComponent {
   @Input()

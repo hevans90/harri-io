@@ -1,0 +1,40 @@
+<ng-container *ngIf="details">
+  <a class="movie-detail__back" mat-raised-button routerLink="/movie-library"
+    >Back to Library</a
+  >
+  <h1>{{ details.title }} ({{ details.year }})</h1>
+  <img *ngIf="details.poster" [src]="details.poster" />
+  <mat-divider></mat-divider>
+
+  <p>{{ details.plot }}</p>
+
+  <mat-divider></mat-divider>
+
+  <p>Released: {{ details.released | date }}</p>
+  <p>Rated: {{ details.rated }}</p>
+  <p>Runtime: {{ details.runtime }} mins</p>
+  <p>{{ details?.awards?.text }}</p>
+
+  <mat-divider></mat-divider>
+
+  <section class="details__lists">
+    <mat-list>
+      <h3 mat-subheader>
+        <mat-icon mat-list-icon>create</mat-icon>&nbsp; Writers
+      </h3>
+
+      <mat-list-item *ngFor="let writer of details.writers">
+        <h4 mat-line>{{ writer }}</h4>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-list>
+      <h3 mat-subheader>
+        <mat-icon mat-list-icon>accessibility_new</mat-icon>&nbsp; Actors
+      </h3>
+      <mat-list-item *ngFor="let actor of details.actors">
+        <h4 mat-line>{{ actor }}</h4>
+      </mat-list-item>
+    </mat-list>
+  </section>
+</ng-container>

@@ -1,0 +1,26 @@
+@import 'breakpoints';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.movie-detail__back {
+  margin-bottom: 24px;
+  width: 100%;
+
+  @include bp-small {
+    width: unset;
+  }
+}
+
+mat-divider {
+  width: 100%;
+  margin: 12px 0;
+}
+
+.details__lists {
+  display: flex;
+}

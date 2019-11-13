@@ -3,6 +3,9 @@
   </mat-progress-spinner>
 </section>
 
-<section class="detail__loaded" [hidden]="!(loaded | async)">
-  {{ movieDetails | async }}
-</section>
+<harri-io-movie-detail
+  class="detail__loaded"
+  *ngIf="movieDetails"
+  [details]="movieDetails | async"
+>
+</harri-io-movie-detail>

@@ -12,6 +12,7 @@ export interface Movie {
 }
 
 export type DetailedMovie = Movie & {
+  rated: string;
   runtime: number;
   countries: string[];
   writers: string[];
