@@ -1,14 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
-import { LibraryComponent } from './container/library.component';
-import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import * as fromMovieLibrary from './+state/movie-library.reducer';
+import { StoreModule } from '@ngrx/store';
 import { MovieLibraryEffects } from './+state/movie-library.effects';
+import * as fromMovieLibrary from './+state/movie-library.reducer';
+import { LibraryComponent } from './containers/library/library.component';
+
+const materialModules = [MatProgressSpinnerModule];
 
 @NgModule({
   imports: [
+    ...materialModules,
     CommonModule,
     RouterModule.forChild([
       {

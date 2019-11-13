@@ -1,0 +1,8 @@
+<section class="library__loading" *ngIf="(loaded | async) === false">
+  <mat-progress-spinner [color]="'primary'" [mode]="'indeterminate'">
+  </mat-progress-spinner>
+</section>
+
+<section class="library__loaded" *ngIf="(loaded | async) === true">
+  loaded
+</section>

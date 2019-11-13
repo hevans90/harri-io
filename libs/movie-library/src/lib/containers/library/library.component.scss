@@ -1,0 +1,12 @@
+@import 'layout';
+:host {
+  @include container;
+}
+
+.library__loading {
+  width: 100%;
+  min-height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
