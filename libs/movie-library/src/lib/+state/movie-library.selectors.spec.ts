@@ -9,8 +9,8 @@ describe('MovieLibrary Selectors', () => {
   beforeEach(() => {
     storeState = {
       movieLibrary: {
+        count: moviesFixture.response.length,
         list: [...moviesFixture.response],
-        selectedId: 'PRODUCT-BBB',
         error: ERROR_MSG,
         loaded: true
       }
@@ -18,10 +18,16 @@ describe('MovieLibrary Selectors', () => {
   });
 
   describe('MovieLibrary Selectors', () => {
-    it('getAllMovieLibrary() should return the list of MovieLibrary', () => {
+    it('getAllMovieLibrary() should return the list of Movies', () => {
       const results = movieLibraryQuery.getAllMovies(storeState);
 
       expect(results.length).toBe(26);
+    });
+
+    it('getMovieCount() should return the number of Movies', () => {
+      const results = movieLibraryQuery.getMovieCount(storeState);
+
+      expect(results).toBe(26);
     });
 
     it('getLoaded() should return the current "loaded" status', () => {

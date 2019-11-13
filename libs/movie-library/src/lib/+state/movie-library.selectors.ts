@@ -13,9 +13,18 @@ const getLoaded = createSelector(
   getMovieLibraryState,
   (state: MovieLibraryState) => state.loaded
 );
+
 const getError = createSelector(
   getMovieLibraryState,
   (state: MovieLibraryState) => state.error
+);
+
+const getMovieCount = createSelector(
+  getMovieLibraryState,
+  getLoaded,
+  (state: MovieLibraryState, isLoaded) => {
+    return isLoaded ? state.count : 0;
+  }
 );
 
 const getAllMovies = createSelector(
@@ -29,5 +38,6 @@ const getAllMovies = createSelector(
 export const movieLibraryQuery = {
   getLoaded,
   getError,
-  getAllMovies
+  getAllMovies,
+  getMovieCount
 };

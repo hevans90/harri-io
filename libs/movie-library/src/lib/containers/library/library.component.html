@@ -4,5 +4,5 @@
 </section>
 
 <section class="library__loaded" *ngIf="(loaded | async) === true">
-  loaded
+  <harri-io-movie-table [movies]="movies | async"></harri-io-movie-table>
 </section>

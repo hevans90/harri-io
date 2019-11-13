@@ -1,0 +1,42 @@
+@import '~@angular/material/theming';
+
+@mixin mat-table-theme($theme) {
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+
+  .custom-mat-table__table-container {
+    border-color: mat-color($accent, 500);
+
+    table.mat-table {
+      background: transparent;
+
+      th.mat-header-cell {
+        color: mat-contrast($accent, 500);
+      }
+
+      th.mat-header-cell,
+      td.mat-cell {
+        border-bottom-color: mat-color($accent, 500);
+      }
+    }
+
+    .mat-paginator,
+    .mat-header-cell {
+      background: mat-color($accent, 500);
+    }
+
+    .mat-paginator,
+    .mat-paginator-page-size .mat-select-trigger .mat-select-value,
+    .mat-paginator-page-size .mat-select-trigger .mat-select-arrow {
+      color: mat-contrast($accent, 500);
+    }
+
+    .mat-icon-button[disabled][disabled] {
+      color: darken(mat-contrast($accent, 500), 50%);
+    }
+
+    .mat-paginator-page-size .mat-form-field-underline {
+      background-color: mat-contrast($accent, 500);
+    }
+  }
+}

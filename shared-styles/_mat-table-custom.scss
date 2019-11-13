@@ -1,0 +1,86 @@
+@import 'breakpoints';
+
+$tableHeaderFooterHeight: 30px;
+$mat-custom-table-border-width: 3px;
+
+@mixin mat-table-custom-container {
+  min-width: 30vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: auto;
+
+  @include bp-small {
+    border-radius: 5px;
+  }
+
+  @include mb-landscape-small {
+    height: 52vh;
+  }
+
+  border-width: $mat-custom-table-border-width;
+  border-style: solid;
+}
+
+@mixin mat-table-custom {
+  position: absolute;
+  height: 100%;
+  @include bp-small {
+    height: calc(
+      100% - #{$tableHeaderFooterHeight}
+    ); // paginator exists on tablet resolutions and up
+  }
+
+  @include mb-landscape {
+    height: 100%;
+  }
+
+  width: 100%;
+  overflow-x: hidden;
+  table {
+    width: 100%;
+    tr.mat-header-row {
+      height: $tableHeaderFooterHeight;
+    }
+    td.mat-cell:first-of-type,
+    th.mat-header-cell:first-of-type {
+      padding-left: 12px;
+      @include bp-small {
+        padding-left: 24px;
+      }
+    }
+    td.mat-cell {
+      border-bottom-width: $mat-custom-table-border-width;
+    }
+    tr.mat-row {
+      &:last-child td {
+        border-bottom-width: 0px;
+        @include bp-small {
+          border-bottom-width: auto;
+        }
+      }
+    }
+  }
+}
+
+@mixin mat-paginator-sticky-custom {
+  display: none;
+  width: 100%;
+
+  @include bp-small {
+    display: block;
+  }
+
+  @include mb-landscape {
+    display: none;
+  }
+
+  bottom: 0;
+  position: absolute;
+  ::ng-deep .mat-paginator-outer-container {
+    height: $tableHeaderFooterHeight;
+    overflow: hidden;
+    align-items: center;
+  }
+}
