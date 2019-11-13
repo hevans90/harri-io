@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Effect, Actions } from '@ngrx/effects';
+import { Actions, Effect } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
-
-import { MovieLibraryPartialState } from './movie-library.reducer';
+import { of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { MovieService } from '../services/movie.service';
 import {
   LoadMovieLibrary,
+  MovieLibraryActionTypes,
   MovieLibraryLoaded,
-  MovieLibraryLoadError,
-  MovieLibraryActionTypes
+  MovieLibraryLoadError
 } from './movie-library.actions';
+import { MovieLibraryPartialState } from './movie-library.reducer';
 
 @Injectable()
 export class MovieLibraryEffects {
   @Effect() loadMovieLibrary$ = this.dataPersistence.fetch(
     MovieLibraryActionTypes.LoadMovieLibrary,
     {
-      run: (action: LoadMovieLibrary, state: MovieLibraryPartialState) => {
-        // Your custom REST 'load' logic goes here. For now just return an empty list...
-        return new MovieLibraryLoaded([]);
-      },
+      run: () =>
+        this.movieService.movies.pipe(
+          switchMap(library => of(new MovieLibraryLoaded(library)))
+        ),
 
       onError: (action: LoadMovieLibrary, error) => {
         console.error('Error', error);
@@ -29,6 +31,7 @@ export class MovieLibraryEffects {
 
   constructor(
     private actions$: Actions,
-    private dataPersistence: DataPersistence<MovieLibraryPartialState>
+    private dataPersistence: DataPersistence<MovieLibraryPartialState>,
+    private movieService: MovieService
   ) {}
 }

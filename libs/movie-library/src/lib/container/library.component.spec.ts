@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
+import { initialState, reducer } from '../+state/movie-library.reducer';
 import { LibraryComponent } from './library.component';
 
 describe('LibraryComponent', () => {
@@ -7,7 +9,10 @@ describe('LibraryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LibraryComponent]
+      declarations: [LibraryComponent],
+      imports: [
+        StoreModule.forRoot([reducer], { initialState: [initialState] })
+      ]
     }).compileComponents();
   }));
 

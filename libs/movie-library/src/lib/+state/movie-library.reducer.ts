@@ -1,3 +1,4 @@
+import { DetailedMovie, Movie } from '../models/movie';
 import {
   MovieLibraryAction,
   MovieLibraryActionTypes
@@ -5,20 +6,12 @@ import {
 
 export const MOVIELIBRARY_FEATURE_KEY = 'movieLibrary';
 
-/**
- * Interface for the 'MovieLibrary' data used in
- *  - MovieLibraryState, and the reducer function
- *
- *  Note: replace if already defined in another module
- */
-
-/* tslint:disable:no-empty-interface */
-export interface Entity {}
-
 export interface MovieLibraryState {
-  list: Entity[]; // list of MovieLibrary; analogous to a sql normalized table
-  selectedId?: string | number; // which MovieLibrary record has been selected
-  loaded: boolean; // has the MovieLibrary list been loaded
+  count: number;
+  list: Movie[]; // list of Movies; analogous to a sql normalized table
+  details: DetailedMovie[];
+
+  loaded: boolean; // has the Movie Library been loaded
   error?: any; // last none error (if any)
 }
 
@@ -27,7 +20,9 @@ export interface MovieLibraryPartialState {
 }
 
 export const initialState: MovieLibraryState = {
+  count: 0,
   list: [],
+  details: [],
   loaded: false
 };
 
@@ -39,8 +34,16 @@ export function reducer(
     case MovieLibraryActionTypes.MovieLibraryLoaded: {
       state = {
         ...state,
-        list: action.payload,
+        count: action.payload.count,
+        list: action.payload.response,
         loaded: true
+      };
+      break;
+    }
+    case MovieLibraryActionTypes.MovieLibraryLoadError: {
+      state = {
+        ...state,
+        error: action.payload
       };
       break;
     }

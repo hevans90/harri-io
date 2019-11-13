@@ -1,16 +1,16 @@
-import { TestBed, async } from '@angular/core/testing';
-
-import { Observable } from 'rxjs';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
 import { provideMockActions } from '@ngrx/effects/testing';
-
-import { NxModule, DataPersistence } from '@nrwl/angular';
+import { StoreModule } from '@ngrx/store';
+import { DataPersistence, NxModule } from '@nrwl/angular';
 import { hot } from '@nrwl/angular/testing';
-
-import { MovieLibraryEffects } from './movie-library.effects';
+import { Observable, of } from 'rxjs';
+import moviesFixture from '../fixtures/movies.fixture.json';
+import { MovieLibrary } from '../models/movie-library';
+import { MovieService } from '../services/movie.service';
 import { LoadMovieLibrary, MovieLibraryLoaded } from './movie-library.actions';
+import { MovieLibraryEffects } from './movie-library.effects';
 
 describe('MovieLibraryEffects', () => {
   let actions: Observable<any>;
@@ -19,6 +19,7 @@ describe('MovieLibraryEffects', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
+        HttpClientTestingModule,
         NxModule.forRoot(),
         StoreModule.forRoot({}),
         EffectsModule.forRoot([])
@@ -26,7 +27,11 @@ describe('MovieLibraryEffects', () => {
       providers: [
         MovieLibraryEffects,
         DataPersistence,
-        provideMockActions(() => actions)
+        provideMockActions(() => actions),
+        {
+          provide: MovieService,
+          useValue: { movies: of(moviesFixture) } as Partial<MovieService>
+        }
       ]
     });
 
@@ -37,7 +42,9 @@ describe('MovieLibraryEffects', () => {
     it('should work', () => {
       actions = hot('-a-|', { a: new LoadMovieLibrary() });
       expect(effects.loadMovieLibrary$).toBeObservable(
-        hot('-a-|', { a: new MovieLibraryLoaded([]) })
+        hot('-a-|', {
+          a: new MovieLibraryLoaded(moviesFixture as MovieLibrary)
+        })
       );
     });
   });

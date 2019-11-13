@@ -30,10 +30,12 @@ describe('MovieService', () => {
   });
 
   describe('movieDetail', () => {
-    it('should return a payload with a single detailed movie & count', async(() => {
+    it('should return a payload with a single detailed movie', async(() => {
       service
         .movieDetail('a1b2c3')
-        .subscribe(movie => expect(movie).toEqual(movieDetailFixture));
+        .subscribe(movie =>
+          expect(movie).toEqual(movieDetailFixture.response[0])
+        );
 
       httpMock.expectOne(`${service.apiUrl}/a1b2c3`).flush(movieDetailFixture);
       httpMock.verify();

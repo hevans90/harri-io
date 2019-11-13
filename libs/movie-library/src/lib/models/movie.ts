@@ -4,7 +4,7 @@ export interface Movie {
   _id: string;
   title: string;
   year: number;
-  released: Date;
+  released: string; // ISO Date string
   genres: Genre[];
   director: string;
   poster: string;
