@@ -5,12 +5,12 @@ import {
   OnInit
 } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { movieLibraryQuery } from '@harri-io/movie-library';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { filter, switchMap, takeUntil } from 'rxjs/operators';
 import { LoadMovieDetails } from '../../+state/movie-library.actions';
 import { MovieLibraryState } from '../../+state/movie-library.reducer';
+import { movieLibraryQuery } from '../../+state/movie-library.selectors';
 import { DetailedMovie } from '../../models/movie';
 
 @Component({
