@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
+import { RouterTestingModule } from '@angular/router/testing';
 import { MovieTableComponent } from './movie-table.component';
 
 describe('MovieTableComponent', () => {
@@ -10,7 +11,7 @@ describe('MovieTableComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MovieTableComponent],
-      imports: [MatTableModule],
+      imports: [MatTableModule, RouterTestingModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
