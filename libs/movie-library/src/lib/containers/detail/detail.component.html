@@ -1,3 +1,8 @@
-<p>detail works!</p>
+<section class="detail__loading" *ngIf="!(loaded | async)">
+  <mat-progress-spinner [color]="'primary'" [mode]="'indeterminate'">
+  </mat-progress-spinner>
+</section>
 
-{{ movieDetails | async | json }}
+<section class="detail__loaded" [hidden]="!(loaded | async)">
+  {{ movieDetails | async }}
+</section>

@@ -1,3 +1,4 @@
+import movieDetailFixture from '../fixtures/movie-detail.fixture.json';
 import moviesFixture from '../fixtures/movies.fixture.json';
 import { movieLibraryQuery } from './movie-library.selectors';
 
@@ -12,7 +13,10 @@ describe('MovieLibrary Selectors', () => {
         count: moviesFixture.response.length,
         list: [...moviesFixture.response],
         error: ERROR_MSG,
-        loaded: true
+        loaded: true,
+
+        details: [movieDetailFixture],
+        detailsLoaded: true
       }
     };
   });

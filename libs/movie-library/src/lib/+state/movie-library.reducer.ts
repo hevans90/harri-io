@@ -12,6 +12,7 @@ export interface MovieLibraryState {
   details: DetailedMovie[];
 
   loaded: boolean; // has the Movie Library been loaded
+  detailsLoaded: boolean; // has the current detail been loaded
   error?: any; // last none error (if any)
   detailsError?: any; // last none error (if any)
 }
@@ -24,7 +25,8 @@ export const initialState: MovieLibraryState = {
   count: 0,
   list: [],
   details: [],
-  loaded: false
+  loaded: false,
+  detailsLoaded: false
 };
 
 export function reducer(
@@ -49,6 +51,15 @@ export function reducer(
       break;
     }
 
+    case MovieLibraryActionTypes.LoadMovieDetails: {
+      state = {
+        ...state,
+        detailsLoaded: false,
+        detailsError: undefined
+      };
+      break;
+    }
+
     case MovieLibraryActionTypes.MovieDetailsLoaded: {
       let details;
 
@@ -61,10 +72,12 @@ export function reducer(
       state = {
         ...state,
         details,
+        detailsLoaded: true,
         detailsError: undefined
       };
       break;
     }
+
     case MovieLibraryActionTypes.MovieDetailsLoadError: {
       state = {
         ...state,

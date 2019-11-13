@@ -14,6 +14,11 @@ const getLoaded = createSelector(
   (state: MovieLibraryState) => state.loaded
 );
 
+const getDetailsLoaded = createSelector(
+  getMovieLibraryState,
+  (state: MovieLibraryState) => state.detailsLoaded
+);
+
 const getError = createSelector(
   getMovieLibraryState,
   (state: MovieLibraryState) => state.error
@@ -48,6 +53,7 @@ const getMovieDetails = (id: string) =>
 
 export const movieLibraryQuery = {
   getLoaded,
+  getDetailsLoaded,
   getError,
   getDetailsError,
   getAllMovies,
