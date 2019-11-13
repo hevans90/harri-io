@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { MovieLibraryEffects } from './+state/movie-library.effects';
 import * as fromMovieLibrary from './+state/movie-library.reducer';
 import { MovieTableComponent } from './components/movie-table/movie-table.component';
+import { DetailComponent } from './containers/detail/detail.component';
 import { LibraryComponent } from './containers/library/library.component';
 
 const materialModules = [
@@ -37,6 +38,10 @@ const materialModules = [
       {
         path: '',
         component: LibraryComponent
+      },
+      {
+        path: 'details/:id',
+        component: DetailComponent
       }
     ]),
     StoreModule.forFeature(
@@ -45,6 +50,6 @@ const materialModules = [
     ),
     EffectsModule.forFeature([MovieLibraryEffects])
   ],
-  declarations: [LibraryComponent, MovieTableComponent]
+  declarations: [LibraryComponent, MovieTableComponent, DetailComponent]
 })
 export class MovieLibraryModule {}

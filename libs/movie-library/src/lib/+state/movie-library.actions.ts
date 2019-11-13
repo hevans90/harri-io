@@ -28,6 +28,7 @@ export class MovieLibraryLoaded implements Action {
 
 export class LoadMovieDetails implements Action {
   readonly type = MovieLibraryActionTypes.LoadMovieDetails;
+  constructor(public payload: string) {}
 }
 
 export class MovieDetailsLoadError implements Action {

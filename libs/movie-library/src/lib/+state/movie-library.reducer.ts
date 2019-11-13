@@ -13,6 +13,7 @@ export interface MovieLibraryState {
 
   loaded: boolean; // has the Movie Library been loaded
   error?: any; // last none error (if any)
+  detailsError?: any; // last none error (if any)
 }
 
 export interface MovieLibraryPartialState {
@@ -44,6 +45,30 @@ export function reducer(
       state = {
         ...state,
         error: action.payload
+      };
+      break;
+    }
+
+    case MovieLibraryActionTypes.MovieDetailsLoaded: {
+      let details;
+
+      if (state.details.find(movie => movie._id === action.payload._id)) {
+        details = state.details;
+      } else {
+        details = [...state.details, action.payload];
+      }
+
+      state = {
+        ...state,
+        details,
+        detailsError: undefined
+      };
+      break;
+    }
+    case MovieLibraryActionTypes.MovieDetailsLoadError: {
+      state = {
+        ...state,
+        detailsError: action.payload
       };
       break;
     }

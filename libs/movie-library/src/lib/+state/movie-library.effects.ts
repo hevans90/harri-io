@@ -5,7 +5,10 @@ import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { MovieService } from '../services/movie.service';
 import {
+  LoadMovieDetails,
   LoadMovieLibrary,
+  MovieDetailsLoaded,
+  MovieDetailsLoadError,
   MovieLibraryActionTypes,
   MovieLibraryLoaded,
   MovieLibraryLoadError
@@ -25,6 +28,23 @@ export class MovieLibraryEffects {
       onError: (action: LoadMovieLibrary, error) => {
         console.error('Error', error);
         return new MovieLibraryLoadError(error);
+      }
+    }
+  );
+
+  @Effect() loadMovieDetails$ = this.dataPersistence.fetch(
+    MovieLibraryActionTypes.LoadMovieDetails,
+    {
+      run: (action: LoadMovieDetails) =>
+        this.movieService
+          .movieDetail(action.payload)
+          .pipe(
+            switchMap(movieDetails => of(new MovieDetailsLoaded(movieDetails)))
+          ),
+
+      onError: (action: LoadMovieDetails, error) => {
+        console.error('Error', error);
+        return new MovieDetailsLoadError(error);
       }
     }
   );
