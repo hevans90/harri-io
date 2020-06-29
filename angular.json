@@ -12,6 +12,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/",
             "index": "apps/harri-io/src/index.html",
             "main": "apps/harri-io/src/main.ts",
@@ -26,12 +27,16 @@
                 "output": "/"
               }
             ],
-            "styles": ["apps/harri-io/src/styles.scss"],
+            "styles": [
+              "apps/harri-io/src/styles.scss"
+            ],
             "stylePreprocessorOptions": {
-              "includePaths": ["shared-styles", "apps/harri-io/src/_theming"]
+              "includePaths": [
+                "shared-styles",
+                "apps/harri-io/src/_theming"
+              ]
             },
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -55,10 +60,20 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             },
             "e2e": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "outputPath": "dist/harri-io-e2e",
               "fileReplacements": [
                 {
@@ -194,7 +209,6 @@
   },
   "cli": {
     "warnings": {
-      "typescriptMismatch": false,
       "versionMismatch": false
     },
     "defaultCollection": "@nrwl/angular",
