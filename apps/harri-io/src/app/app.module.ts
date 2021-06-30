@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { GraphQLModule } from './graphql.module';
 
 const materialModules = [MatIconModule, MatToolbarModule, MatButtonModule];
 
@@ -36,7 +37,8 @@ const materialModules = [MatIconModule, MatToolbarModule, MatButtonModule];
       logOnly: false
     }),
     BrowserAnimationsModule,
-    NxModule.forRoot()
+    NxModule.forRoot(),
+    GraphQLModule
   ],
   bootstrap: [AppComponent]
 })

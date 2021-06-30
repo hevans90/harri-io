@@ -43,8 +43,11 @@
     "core-js": "^2.5.4",
     "harri-publishable-library": "^0.0.2",
     "rxjs": "~6.5.5",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.10.3"
+    "tslib": "^2.0.0",
+    "zone.js": "~0.10.3",
+    "apollo-angular": "^2.0.3",
+    "@apollo/client": "^3.0.0",
+    "graphql": "^15.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.901.0",
