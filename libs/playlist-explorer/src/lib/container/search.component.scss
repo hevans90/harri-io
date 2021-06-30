@@ -1,4 +1,7 @@
+@use 'sass:math';
 @import 'layout';
+
+
 :host {
   @include container;
 }
@@ -17,5 +20,5 @@
 .playlist__card {
   max-width: 250px;
   user-select: none;
-  margin: $margin/2;
+  margin: math.div($margin, 2);
 }
