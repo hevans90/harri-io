@@ -14,8 +14,24 @@
   }
 }
 
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 h2 {
   margin-top: 2rem;
+}
+
+img {
+  width: 2.5rem;
+  margin-right: 0.5rem;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ul {
@@ -29,10 +45,5 @@ ul {
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 0.5rem;
-
-    img {
-      width: 2.5rem;
-      margin-right: 0.5rem;
-    }
   }
 }
