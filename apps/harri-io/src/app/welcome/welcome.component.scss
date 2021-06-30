@@ -1,7 +1,38 @@
 @import 'layout';
+@import 'breakpoints';
 
 :host {
   @include container;
   align-items: center;
   justify-content: center;
+  text-align: center;
+}
+
+* {
+  @include bp-small {
+    max-width: 75vw;
+  }
+}
+
+h2 {
+  margin-top: 2rem;
+}
+
+ul {
+  text-align: start;
+  list-style: none;
+  padding: unset;
+  margin-top: unset;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 0.5rem;
+
+    img {
+      width: 2.5rem;
+      margin-right: 0.5rem;
+    }
+  }
 }

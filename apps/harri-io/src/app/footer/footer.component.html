@@ -1,8 +1,6 @@
 <mat-toolbar>
-  <div class="footer__bio  mat-caption">
-    <div class="footer__author">
-      A portfolio project by hevans90
-    </div>
+  <div class="footer__bio mat-caption">
+    <div class="footer__author">A portfolio project by hevans90</div>
     <a
       class="footer__social-link"
       *ngFor="let link of socialLinks"
@@ -13,7 +11,9 @@
     </a>
   </div>
   <div class="footer__powered-by mat-caption">
+    <a href="https://angular.io/">
     Powered by
     <mat-icon class="footer__powered-icon" svgIcon="angular"></mat-icon>
+    </a>
   </div>
 </mat-toolbar>
