@@ -27,14 +27,9 @@
                 "output": "/"
               }
             ],
-            "styles": [
-              "apps/harri-io/src/styles.scss"
-            ],
+            "styles": ["apps/harri-io/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "shared-styles",
-                "apps/harri-io/src/_theming"
-              ]
+              "includePaths": ["shared-styles", "apps/harri-io/src/_theming"]
             },
             "scripts": []
           },
@@ -109,22 +104,14 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/harri-io/jest.config.js",
-            "tsConfig": "apps/harri-io/tsconfig.spec.json",
-            "setupFile": "apps/harri-io/src/test-setup.ts",
             "passWithNoTests": true
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/harri-io/**/*"
-            ]
+            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!apps/harri-io/**/*"]
           }
         }
       }
@@ -146,10 +133,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**",
-              "!e2e/**"
-            ]
+            "exclude": ["**/node_modules/**", "!e2e/**"]
           }
         }
       }
@@ -167,18 +151,13 @@
               "libs/playlist-explorer/tsconfig.lib.json",
               "libs/playlist-explorer/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/playlist-explorer/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/playlist-explorer/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/playlist-explorer/jest.config.js",
-            "tsConfig": "libs/playlist-explorer/tsconfig.spec.json",
-            "setupFile": "libs/playlist-explorer/src/test-setup.ts",
             "passWithNoTests": true
           }
         }
@@ -202,18 +181,13 @@
               "libs/movie-library/tsconfig.lib.json",
               "libs/movie-library/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/movie-library/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/movie-library/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/movie-library/jest.config.js",
-            "tsConfig": "libs/movie-library/tsconfig.spec.json",
-            "setupFile": "libs/movie-library/src/test-setup.ts",
             "passWithNoTests": true
           }
         }
