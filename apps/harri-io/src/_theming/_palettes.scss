@@ -1,5 +1,5 @@
+@use '~@angular/material' as mat;
 // Import library functions for theme creation.
-@import '~@angular/material/theming';
 
 $__primary: (
   50: #fce6e5,
@@ -71,5 +71,5 @@ $__accent-additional-keys: (
   anchor: map-get($__accent, 500)
 );
 
-$primary: mat-palette($__primary);
-$accent: mat-palette(map-merge($__accent, $__accent-additional-keys));
+$primary: mat.define-palette($__primary);
+$accent: mat.define-palette(map-merge($__accent, $__accent-additional-keys));
