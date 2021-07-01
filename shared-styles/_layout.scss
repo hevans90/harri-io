@@ -6,6 +6,8 @@ $containerHeight: calc(
   100vh - (2 * #{$margin}) - #{$headerHeight} - #{$footerHeight}
 );
 
+$containerHeightNoMargin: calc(100vh - #{$headerHeight} - #{$footerHeight});
+
 @mixin container {
   display: flex;
   flex-direction: column;
