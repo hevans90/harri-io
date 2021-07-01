@@ -12,23 +12,14 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom",
-      "esnext.asynciterable"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom", "esnext.asynciterable"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "paths": {
-      "@harri-io/playlist-explorer": [
-        "libs/playlist-explorer/src/index.ts"
-      ],
-      "@harri-io/movie-library": [
-        "libs/movie-library/src/index.ts"
-      ]
+      "@harri-io/comment-tree": ["libs/comment-tree/src/index.ts"],
+      "@harri-io/movie-library": ["libs/movie-library/src/index.ts"],
+      "@harri-io/playlist-explorer": ["libs/playlist-explorer/src/index.ts"]
     },
     "allowSyntheticDefaultImports": true
   }

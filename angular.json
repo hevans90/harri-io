@@ -3,6 +3,31 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
+    "comment-tree": {
+      "projectType": "library",
+      "root": "libs/comment-tree",
+      "sourceRoot": "libs/comment-tree/src",
+      "prefix": "harri-io",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/comment-tree"],
+          "options": {
+            "jestConfig": "libs/comment-tree/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/comment-tree/src/**/*.ts",
+              "libs/comment-tree/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "harri-io": {
       "root": "apps/harri-io",
       "sourceRoot": "apps/harri-io/src",
@@ -142,36 +167,6 @@
         }
       }
     },
-    "playlist-explorer": {
-      "projectType": "library",
-      "root": "libs/playlist-explorer",
-      "sourceRoot": "libs/playlist-explorer/src",
-      "prefix": "harri-io",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/playlist-explorer/tsconfig.lib.json",
-              "libs/playlist-explorer/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/playlist-explorer/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/playlist-explorer/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "movie-library": {
       "projectType": "library",
       "root": "libs/movie-library",
@@ -201,6 +196,36 @@
           "styleext": "scss"
         }
       }
+    },
+    "playlist-explorer": {
+      "projectType": "library",
+      "root": "libs/playlist-explorer",
+      "sourceRoot": "libs/playlist-explorer/src",
+      "prefix": "harri-io",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/playlist-explorer/tsconfig.lib.json",
+              "libs/playlist-explorer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/playlist-explorer/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/playlist-explorer/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
@@ -212,10 +237,12 @@
   },
   "schematics": {
     "@nrwl/angular:application": {
+      "linter": "eslint",
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
+      "linter": "eslint",
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {

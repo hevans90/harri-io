@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/harri-io',
     '<rootDir>/libs/playlist-explorer',
     '<rootDir>/libs/movie-library',
+    '<rootDir>/libs/comment-tree',
   ],
 };

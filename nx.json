@@ -8,21 +8,20 @@
     "nx.json": "*"
   },
   "projects": {
+    "comment-tree": {
+      "tags": []
+    },
     "harri-io": {
-      "tags": [
-        "app"
-      ]
+      "tags": ["app"]
     },
     "harri-io-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "harri-io"
-      ]
-    },
-    "playlist-explorer": {
-      "tags": []
+      "implicitDependencies": ["harri-io"]
     },
     "movie-library": {
+      "tags": []
+    },
+    "playlist-explorer": {
       "tags": []
     }
   },
@@ -30,13 +29,10 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
-  }
+  },
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "newProjectRoot": ""
 }
