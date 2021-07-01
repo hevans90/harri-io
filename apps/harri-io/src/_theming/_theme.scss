@@ -5,6 +5,7 @@
 @import 'global/body.theme';
 @import 'global/typography.theme';
 @import 'components/mat-table-custom.component.theme';
+@import 'components/thread.component.theme';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -20,5 +21,6 @@ $theme: mat.define-dark-theme($primary, $accent, $warn);
 // Include theme styles for core and each component used in your app.
 @include mat.all-component-themes($theme);
 @include body-theme($theme);
+@include thread-theme($theme);
 @include typography-theme($theme);
 @include mat.table-theme($theme);

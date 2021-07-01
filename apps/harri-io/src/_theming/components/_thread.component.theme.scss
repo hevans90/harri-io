@@ -1,0 +1,14 @@
+@use '~@angular/material' as mat;
+
+@mixin thread-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  harri-io-thread {
+    .message,
+    .composer {
+      background: mat.get-color-from-palette($background, card);
+      color: mat.get-color-from-palette($foreground, text);
+    }
+  }
+}

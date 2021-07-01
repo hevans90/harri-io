@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-  color: black;
 
   &:first-child {
     padding-top: 20px;
@@ -10,7 +9,6 @@
   }
   .message,
   .composer {
-    background: white;
     border-radius: 18px;
     padding: 16px;
   }
