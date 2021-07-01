@@ -1,0 +1,23 @@
+@import 'layout';
+
+:host {
+  height: $containerHeight;
+  display: flex;
+  flex-direction: row;
+  background: #e5e5e5;
+  overflow: hidden;
+}
+
+harri-io-thread {
+  height: $containerHeight;
+  flex-grow: 1;
+  flex-basis: 0;
+  resize: horizontal;
+}
+
+ngs-code-editor {
+  flex-grow: 1;
+  flex-basis: 0;
+  height: $containerHeight;
+  max-width: 50%;
+}

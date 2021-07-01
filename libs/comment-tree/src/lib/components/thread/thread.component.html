@@ -1,0 +1,47 @@
+<ng-container *ngIf="messages">
+  <ng-container *ngFor="let message of messages">
+    <div class="wrapper">
+      <div class="left">
+        <img
+          class="avatar"
+          [src]="
+            sanitize(
+              'data:image/svg+xml;utf8,' + generateAvatarBuffer(message.sender)
+            )
+          "
+        />
+        <div class="message">
+          <div class="sender">{{ message.sender }}</div>
+          <p class="content">{{ message.text }}</p>
+
+          <div class="icons">
+            <img
+              [src]="
+                message.replying
+                  ? 'assets/comment-tree/reply-filled.svg'
+                  : 'assets/comment-tree/reply.svg'
+              "
+              (click)="message.replying = !message.replying"
+            />
+          </div>
+        </div>
+      </div>
+      <input
+        type="text"
+        [placeholder]="'Respond to ' + message.sender + '...'"
+        class="composer"
+        myAutofocus
+        *ngIf="message.replying"
+        (keydown.enter)="replyToMessage(message, $event)"
+      />
+    </div>
+
+    <harri-io-thread
+      class="nested"
+      *ngIf="message.children"
+      [messages]="message.children"
+      (messageReplier)="messageReplier.emit($event)"
+    >
+    </harri-io-thread>
+  </ng-container>
+</ng-container>

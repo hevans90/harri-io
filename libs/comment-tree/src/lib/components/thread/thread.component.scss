@@ -1,0 +1,79 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  color: black;
+
+  &:first-child {
+    padding-top: 20px;
+    padding-right: 20px;
+  }
+  .message,
+  .composer {
+    background: white;
+    border-radius: 18px;
+    padding: 16px;
+  }
+
+  .composer {
+    min-width: 200px;
+    width: calc(100% - 70px - 16px - 16px);
+    margin-left: 70px;
+    margin-top: 16px;
+    border: unset;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .wrapper {
+    width: fit-content;
+    margin-bottom: 16px;
+
+    .left {
+      display: flex;
+    }
+
+    img.avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 30px;
+      margin-right: 10px;
+    }
+  }
+
+  .message {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+
+    min-width: 100px;
+
+    .sender {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .content {
+      margin: 0;
+      margin-bottom: 5px;
+    }
+
+    .icons {
+      height: 32px;
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+:host-context(.nested) {
+  margin-left: 70px;
+
+  .wrapper {
+    .left {
+      align-items: center;
+    }
+  }
+}

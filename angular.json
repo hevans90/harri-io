@@ -37,6 +37,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": ["generate-avatar"],
             "outputPath": "dist/",
             "index": "apps/harri-io/src/index.html",
             "main": "apps/harri-io/src/main.ts",
@@ -49,6 +50,11 @@
                 "glob": "CNAME",
                 "input": "",
                 "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/comment-tree/src/assets/",
+                "output": "/assets/comment-tree"
               }
             ],
             "styles": ["apps/harri-io/src/styles.scss"],

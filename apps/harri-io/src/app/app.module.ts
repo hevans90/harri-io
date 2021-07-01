@@ -8,13 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CodeEditorModule } from '@ngstack/code-editor';
 import { NxModule } from '@nrwl/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
+import { GraphQLModule } from './graphql.module';
 import { HeaderComponent } from './header/header.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { GraphQLModule } from './graphql.module';
 
 const materialModules = [MatIconModule, MatToolbarModule, MatButtonModule];
 
@@ -23,23 +24,24 @@ const materialModules = [MatIconModule, MatToolbarModule, MatButtonModule];
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     ...materialModules,
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
+    CodeEditorModule.forRoot(),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 100,
-      logOnly: false
+      logOnly: false,
     }),
     BrowserAnimationsModule,
     NxModule.forRoot(),
-    GraphQLModule
+    GraphQLModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

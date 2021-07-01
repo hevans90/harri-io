@@ -6,25 +6,32 @@ const routes: Routes = [
   {
     path: 'movie-library',
     loadChildren: () =>
-      import('@harri-io/movie-library').then(m => m.MovieLibraryModule)
+      import('@harri-io/movie-library').then((m) => m.MovieLibraryModule),
   },
   {
     path: 'playlist-explorer',
     loadChildren: () =>
-      import('@harri-io/playlist-explorer').then(m => m.PlaylistExplorerModule)
+      import('@harri-io/playlist-explorer').then(
+        (m) => m.PlaylistExplorerModule
+      ),
+  },
+  {
+    path: 'comment-trees',
+    loadChildren: () =>
+      import('@harri-io/comment-tree').then((m) => m.CommentTreeModule),
   },
   {
     path: 'welcome',
-    component: WelcomeComponent
+    component: WelcomeComponent,
   },
   {
     path: '**',
-    redirectTo: 'welcome' // unresolved routes fall back to the welcome page
-  }
+    redirectTo: 'welcome', // unresolved routes fall back to the welcome page
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
